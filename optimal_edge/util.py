@@ -1,7 +1,8 @@
 from math import comb as binomial
+from typing import Optional
 
 
-def expected_value_bl(pool: int, edge: int, limit: int | None = None) -> float:
+def expected_value_bl(pool: int, edge: int, limit: Optional[int] = None) -> float:
     """Compute expected value of succeses for Breaking the Limit
 
     Parameters
@@ -51,7 +52,7 @@ def expected_value_sc(pool: int, edge: int, limit: int) -> float:
         Dice pool (without edge)
     edge : int
         Edge attribute (ignored)
-    limit : int | None, optional
+    limit : int, optional
         Limit, by default None
 
     Returns
