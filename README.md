@@ -10,4 +10,4 @@ You should be able to install this package from this repository via pip:
 # pip install git+https://github.com/Emrys-Merlin/sr_optimal_edge_bot
 ```
 
-This will install the `optimal_edge_bot` command. This command expects that the token of your discord app is exported in a environment variable with the name `DISCORD_TOKEN`. Alternatively, you can copy the `dotenv.example` to `.env` and enter your token therein.
+This will install the `optimal_edge_bot` command. This command expects that the token of your discord app is exported in an environment variable with the name `DISCORD_TOKEN`. Alternatively, you can copy the `dotenv.example` to `.env` and enter your token therein.
