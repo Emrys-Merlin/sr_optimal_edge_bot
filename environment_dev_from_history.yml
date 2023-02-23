@@ -1,0 +1,12 @@
+name: sr_bot
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - mypy
+  - flake8
+  - pytest
+  - black
+  - tox
+prefix: /home/tim/.anaconda3/envs/sr_bot
