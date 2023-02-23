@@ -1,6 +1,6 @@
 import pytest
 
-from optimal_edge.util import bl_sc_select
+from optimal_edge.util.math import bl_sc_select, p_sc
 
 
 def no_limit_select(pool: int, edge: int) -> int:
@@ -56,3 +56,20 @@ def test_bl_sc_select_high_limit(pool: int, edge: int, limit: int):
 )
 def test_bl_sc_select_zero_limit(pool: int, edge: int):
     assert bl_sc_select(pool, edge, 0) == 1
+
+
+@pytest.mark.parametrize(
+    argnames=["n"],
+    argvalues=[
+        [1],
+        [2],
+        [3],
+        [4],
+        [10],
+        [20],
+        [30],
+    ],
+)
+def test_p_sc(n: int):
+    assert sum(p_sc(n, k) for k in range(n + 1)) == 1.0
+    assert all(p_sc(n, k) >= 0 for k in range(n + 1))
