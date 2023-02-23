@@ -18,9 +18,9 @@ jobs:
       run: |
         # $CONDA is an environment variable pointing to the root of the miniconda directory
         echo $CONDA/bin >> $GITHUB_PATH
-    - name: Install tox -c conda-forge
+    - name: Install tox
       run: |
-        conda install tox
+        conda install tox -c conda-forge
     - name: Run tests with tox
       run: |
         tox
