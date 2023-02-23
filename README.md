@@ -1,3 +1,5 @@
+![CI test pipeline result](https://github.com/Emrys-Merlin/sr_optimal_edge_bot/actions/workflows/python-package-conda.yml/badge.svg)
+
 # Shadowrun Optimal Edge Bot
 
 This is a bot to help you decide whether Breaking the Limit or Second Chance is the better option given your current dice pool (without edge), your edge attribute, and the limit of your throw. For details behind the math, please refer to this [blog post](https://timjadler.de/blog-posts/shadowrun-optimal-edge).
