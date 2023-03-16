@@ -1,0 +1,37 @@
+---
+# tasks file for sr_optimal_edge_bot
+- name: Install sr_optimal_edge_bot package
+  pip:
+    virtualenv: "{{ virtualenv_path }}"
+    name: "{{ pip_name }}"
+    virtualenv_command: python3.9 -m venv
+    state: latest
+  notify:
+    - Restart sr_optimal_edge_bot service
+
+- name: Check if symlink to sr_optimal_edge_bot executable exists
+  stat:
+    path: "{{ executable_path }}"
+  register: stat_sr_optimal_edge_bot
+
+- name: Symlink sr_optimal_edge_bot executable to bin
+  file:
+    src: "{{ virtualenv_path }}/bin/{{ executable }}"
+    path: "{{ executable_path }}"
+    state: link
+  when: not stat_sr_optimal_edge_bot.stat.exists
+  notify:
+    - Restart sr_optimal_edge_bot service
+
+- name: Check if sr_optimal_edge_bot service exists
+  stat:
+    path: "{{ service_file_location }}"
+  register: stat_sr_optimal_edge_bot_service
+
+- name: Install supervisor.d service file for sr_optimal_edge_bot
+  template:
+    src: templates/sr_optimal_edge_bot.ini.j2
+    dest: "{{ service_file_location }}"
+  notify:
+    - Reread supervisor.d
+    - Restart sr_optimal_edge_bot service

@@ -1,0 +1,11 @@
+---
+# handlers file for sr_optimal_edge_bot
+- name: Reread supervisor.d
+  supervisorctl:
+    name: sr_optimal_edge_bot
+    state: present
+
+- name: Restart sr_optimal_edge_bot service
+  supervisorctl:
+    name: sr_optimal_edge_bot
+    state: restarted

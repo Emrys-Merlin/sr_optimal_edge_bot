@@ -1,0 +1,5 @@
+service_file_location: ${HOME}/etc/services.d/sr_optimal_edge_bot.ini
+executable_path: ${HOME}/bin/optimal_edge_bot
+virtualenv_path: ${HOME}/virtualenvs/sr_optimal_edge_bot
+pip_name: git+https://github.com/Emrys-Merlin/sr_optimal_edge_bot
+executable: optimal_edge_bot
